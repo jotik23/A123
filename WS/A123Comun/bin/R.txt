@@ -232,7 +232,8 @@ int drawable abc_textfield_searchview_holo_dark 0x7f020053
 int drawable abc_textfield_searchview_holo_light 0x7f020054
 int drawable abc_textfield_searchview_right_holo_dark 0x7f020055
 int drawable abc_textfield_searchview_right_holo_light 0x7f020056
-int drawable ic_launcher 0x7f020057
+int drawable emergencia 0x7f020057
+int drawable ic_launcher 0x7f020058
 int id action_bar 0x7f05001c
 int id action_bar_activity_content 0x7f050015
 int id action_bar_container 0x7f05001b
@@ -264,6 +265,7 @@ int id ifRoom 0x7f05000a
 int id image 0x7f050027
 int id listMode 0x7f050001
 int id list_item 0x7f050029
+int id llamarA123 0x7f05003e
 int id middle 0x7f050012
 int id never 0x7f050009
 int id none 0x7f050010
@@ -288,7 +290,10 @@ int id showTitle 0x7f050006
 int id split_action_bar 0x7f05001e
 int id submit_area 0x7f050039
 int id tabMode 0x7f050002
+int id textView1 0x7f05003f
 int id title 0x7f05002b
+int id tomarFoto 0x7f05003c
+int id tomarVideo 0x7f05003d
 int id top_action_bar 0x7f050020
 int id up 0x7f050021
 int id useLogo 0x7f050003
