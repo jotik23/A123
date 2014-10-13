@@ -1,9 +1,14 @@
 package co.a123.a123comun;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.gcm.GoogleCloudMessaging;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.DragEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,6 +26,9 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        checkPlayServices();
+        
         
         tomarFoto = (Button) findViewById(R.id.tomarFoto);
         tomarVideo = (Button) findViewById(R.id.tomarVideo);
@@ -63,5 +71,20 @@ public class MainActivity extends Activity {
 		});
         
     }
+    
+    private boolean checkPlayServices() {
+    	   
+    	int resultCode =GooglePlayServicesUtil.isGooglePlayServicesAvailable(getApplicationContext());
+    	   
+    	if (resultCode != ConnectionResult.SUCCESS) {
+    	      if (GooglePlayServicesUtil.isUserRecoverableError(resultCode)) {
+    	         GooglePlayServicesUtil.getErrorDialog(resultCode,this,1).show();
+    	      } else {
+    	         Log.i("grokkingandroid","This device is not supported.");
+    	      }
+    	      return false;
+    	}
+    	return true;
+   }
 }
 

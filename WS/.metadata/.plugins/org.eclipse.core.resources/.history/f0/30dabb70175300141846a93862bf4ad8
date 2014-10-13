@@ -1,0 +1,81 @@
+package co.a123.a123comun.persistence;
+
+import java.sql.SQLException;
+
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import co.a123.a123comun.entidades.*;
+
+import com.google.android.gms.ads.identifier.AdvertisingIdClient.Info;
+import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
+import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.support.ConnectionSource;
+import com.j256.ormlite.table.TableUtils;
+ 
+public class DBHelper extends OrmLiteSqliteOpenHelper {
+ 
+    private static final String DATABASE_NAME = "co.a123.a123comun.db";
+    private static final int DATABASE_VERSION = 1;
+ 
+    private Dao<Historial, Integer> historialDao;
+    private Dao<Evento, Integer> eventoDao;
+    private Dao<InfoAdicional, Integer> infoAdicionalDao;
+    private Dao<InfoAdicionalDetalle, Integer> infoAdicionalDetalleDao;
+ 
+    public DBHelper(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+ 
+    @Override
+    public void onCreate(SQLiteDatabase db, ConnectionSource connectionSource) {
+        try {
+            TableUtils.createTable(connectionSource, Historial.class);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+ 
+    @Override
+    public void onUpgrade(SQLiteDatabase db, ConnectionSource connectionSource, int oldVersion, int newVersion) {
+        onCreate(db, connectionSource);
+    }
+ 
+    public Dao<Historial, Integer> getHistorialDao() throws SQLException {
+        if (historialDao == null) {
+        	historialDao = getDao(Historial.class);
+        }
+        return historialDao;
+    }
+    
+    public Dao<Evento, Integer> getEventoDao() throws SQLException {
+        if (eventoDao == null) {
+        	eventoDao = getDao(Evento.class);
+        }
+        return eventoDao;
+    }
+    
+    public Dao<InfoAdicional, Integer> getInfoAdicionalDao() throws SQLException {
+        if (infoAdicionalDao == null) {
+        	infoAdicionalDao = getDao(InfoAdicional.class);
+        }
+        return infoAdicionalDao;
+    }
+    
+    public Dao<InfoAdicionalDetalle, Integer> getInfoAdicionalDetalleDao() throws SQLException {
+        if (infoAdicionalDetalleDao == null) {
+        	infoAdicionalDetalleDao = getDao(InfoAdicionalDetalle.class);
+        }
+        return infoAdicionalDetalleDao;
+    }
+ 
+    @Override
+    public void close() {
+        super.close();
+        historialDao = null;
+        eventoDao = null;
+        infoAdicionalDao = null;
+        infoAdicionalDetalleDao = null;
+        
+    }
+ 
+}

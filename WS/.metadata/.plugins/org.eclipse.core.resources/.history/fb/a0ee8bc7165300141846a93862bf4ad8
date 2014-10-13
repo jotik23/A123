@@ -1,0 +1,108 @@
+package co.evangelismodigital.losdiezmandamientos.entidades;
+
+import java.io.Serializable;
+
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+
+@DatabaseTable
+public class Capitulo implements Serializable{
+
+	public static final String ID = "_id";
+    public static final String TITULO = "titulo";
+    public static final String INTRO_IMAGEN = "introimagen";
+    public static final String ARCHIVO_CONTENIDO = "archivocontenido";
+    public static final String LEIDO = "leido";
+    public static final String INDICE = "indice";
+    public static final String ARCHIVO_AUDIO = "archivoaudio";
+    public static final String INTRODUCCION = "introduccion";
+    
+	private static final long serialVersionUID = 1L;
+	
+	@DatabaseField(generatedId = true, columnName = ID)
+	private long id;
+	@DatabaseField(columnName = TITULO)
+	private String titulo;
+	@DatabaseField(columnName = INTRO_IMAGEN)
+	private int introImagen;
+	@DatabaseField(columnName = INDICE)
+	private int indice;
+	@DatabaseField(columnName = ARCHIVO_CONTENIDO)
+	private String archivoContenido;
+	@DatabaseField(columnName = LEIDO)
+	private boolean leido;
+	@DatabaseField(columnName = ARCHIVO_AUDIO)
+	private String archivoAudio;
+	@DatabaseField(columnName = INTRODUCCION)
+	private boolean isIntroduccion;
+	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public int getIntroImagen() {
+		return introImagen;
+	}
+
+	public void setIntroImagen(int introImagen) {
+		this.introImagen = introImagen;
+	}
+
+	public String getArchivoContenido() {
+		return archivoContenido;
+	}
+
+	public void setArchivoContenido(String archivoContenido) {
+		this.archivoContenido = archivoContenido;
+	}
+
+	public boolean isLeido() {
+		return leido;
+	}
+
+	public void setLeido(boolean leido) {
+		this.leido = leido;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public String getArchivoAudio() {
+		return archivoAudio;
+	}
+
+	public void setArchivoAudio(String archivoAudio) {
+		this.archivoAudio = archivoAudio;
+	}
+
+	public boolean isIntroduccion() {
+		return isIntroduccion;
+	}
+
+	public void setIntroduccion(boolean isIntroduccion) {
+		this.isIntroduccion = isIntroduccion;
+	}
+
+	public int getIndice() {
+		return indice;
+	}
+
+	public void setIndice(int indice) {
+		this.indice = indice;
+	}
+	
+	
+}

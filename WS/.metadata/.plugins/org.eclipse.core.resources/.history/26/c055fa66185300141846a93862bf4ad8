@@ -1,0 +1,92 @@
+package co.a123.a123comun.entidades;
+
+import java.io.Serializable;
+
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+
+@DatabaseTable
+public class Evento implements Serializable{
+
+	public static final String ID = "_id";
+    public static final String FECHA_INI = "fechaIni";
+    public static final String FECHA_FIN = "fechaFin";
+    public static final String LONGITUD = "longitud";
+    public static final String LATITUD = "latitud";
+    
+	private static final long serialVersionUID = 1L;
+	
+	@DatabaseField(generatedId = true, columnName = ID)
+	private long id;
+	@DatabaseField(columnName = FECHA_INI)
+	private String fechaIni;
+	@DatabaseField(columnName = FECHA_FIN)
+	private int fechaFin;
+	@DatabaseField(columnName = LONGITUD)
+	private int longitud;
+	@DatabaseField(columnName = LATITUD)
+	private String latitud;
+	
+	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getFechaIni() {
+		return fechaIni;
+	}
+
+	public void setFechaIni(String fechaIni) {
+		this.fechaIni = fechaIni;
+	}
+
+	public int getFechaFin() {
+		return fechaFin;
+	}
+
+	public void setFechaFin(int fechaFin) {
+		this.fechaFin = fechaFin;
+	}
+
+	public int getLongitud() {
+		return longitud;
+	}
+
+	public void setLongitud(int longitud) {
+		this.longitud = longitud;
+	}
+
+	public String getLatitud() {
+		return latitud;
+	}
+
+	public void setLatitud(String latitud) {
+		this.latitud = latitud;
+	}
+
+	public static String getFechaIni() {
+		return FECHA_INI;
+	}
+
+	public static String getFechaFin() {
+		return FECHA_FIN;
+	}
+
+	public static String getLongitud() {
+		return LONGITUD;
+	}
+
+	public static String getLatitud() {
+		return LATITUD;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	
+}

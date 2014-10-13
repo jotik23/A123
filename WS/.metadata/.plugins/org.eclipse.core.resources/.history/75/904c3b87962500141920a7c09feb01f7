@@ -1,0 +1,6 @@
+package co.a123.a123comun.util;
+
+public class Constantes {
+
+	public static String PROJECT_NUMER_A123_COMUN = "99409704415";
+}
